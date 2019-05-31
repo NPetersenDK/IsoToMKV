@@ -28,4 +28,4 @@ $ExportLocation = "C:\Users\$env:username\Desktop\MyExportedMovies"
 This project is licensed under the MIT License, therefore a copyright notice is required to be given.
 
 ## Contact
-If you want to contact me about this project, you can do so by sending me an e-mail at github@nipetersen.dk
+If you want to contact me about this project, you can do so by sending me an e-mail at github@nipetersen.dk. Support is very limited, but I might help if I have the time to do so.
