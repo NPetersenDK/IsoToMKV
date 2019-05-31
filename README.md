@@ -14,6 +14,7 @@ $ExportLocation is where you want the converted versions to be. I recommend two 
 ```
 $MakeMKVLocation = "C:\Users\$env:username\Desktop\MyMovies"
 $ExportLocation = "C:\Users\$env:username\Desktop\MyExportedMovies"
+```
 
 ## Disclaimer:
 1) I'm not a part of the MakeMKV Team and therefore don't any rights to their software. I recommend going to their community website for help. You can support MakeMKV by buying their software here: https://www.makemkv.com/buy/
