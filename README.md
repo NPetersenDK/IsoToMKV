@@ -35,3 +35,11 @@ This project is licensed under the MIT License, therefore a copyright notice is 
 
 ## Contact
 If you want to contact me about this project, you can do so by sending me an e-mail at github@nipetersen.dk. Support is very limited, but I might help if I have the time to do so.
+
+```
+ ____  _____ _____ _____ ____  ____  _____ _   _
+|  _ \| ____|_   _| ____|  _ \/ ___|| ____| \ | |
+| |_) |  _|   | | |  _| | |_) \___ \|  _| |  \| |
+|  __/| |___  | | | |___|  _ < ___) | |___| |\  |
+|_|   |_____| |_| |_____|_| \_|____/|_____|_| \_|
+```
