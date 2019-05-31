@@ -1,5 +1,4 @@
-# IsoToMKV
-- Converting ISO files to MKV easy and fast.
+# IsoToMKV - Converting ISO files the easy and fast way.
 
 A PowerShell script that can convert the "old" beloved ISO format to MKV. This script only needs two types of input - where you have your current ISO's and where you want the script to export them.
 
@@ -9,6 +8,13 @@ IsoToMKV uses MakeMKV that are a licensed software to do this.
 1) PowerShell 2.0 or higher
 2) MakeMKV in a licensed / beta version. You can find MakeMKV here: https://www.makemkv.com/
 3) A little bit of brain to understand the script
+
+# What this script does
+1) Checks for ISO-files in the $MakeMKVLocation parameter: No subdirectories are being checked. Making MKV look for Titles over 2500 seconds (40 minutes - can be changed in script)
+2) Converting them to MKV to the destination ($ExportLocation)
+3) Renaming title_t00 to the file name of the ISO.
+
+All actions are logged in a file named: IsoToMKV-timestamp.txt that are placed the same place as the script.
 
 ## How to use:
 Open the script and change these two variables: $MakeMKVLocation and $ExportLocation
