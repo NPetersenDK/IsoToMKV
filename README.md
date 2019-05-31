@@ -19,3 +19,9 @@ $ExportLocation = "C:\Users\$env:username\Desktop\MyExportedMovies"
 ## Disclaimer:
 1) I'm not a part of the MakeMKV Team and therefore don't any rights to their software. I recommend going to their community website for help. You can support MakeMKV by buying their software here: https://www.makemkv.com/buy/
 2) I do not support this script, but you are more than welcome to make an issue and maybe i'll look into it.
+
+## License
+This project is licensed under the MIT License, therefore a copyright notice is required to be given.
+
+## Contact
+If you want to contact me about this project, you can do so by sending me an e-mail at github@nipetersen.dk
