@@ -49,8 +49,8 @@ function Logging($data){
     "$((Get-Date).ToLocalTime()): $data" | Out-File -FilePath $LogFile -Encoding utf8 -Append
 }
 
-$MakeMKVLocation = "I:\Bjarne Film 1"
-$ExportLocation = "H:\NotRedundant_Disk3\Film_Disk3\EN\Retail\DVD\Bjarne-film10"
+$MakeMKVLocation = "C:\Path\To\Your\ISOs"
+$ExportLocation = "C:\Path\To\Where\You\Want\The\MKVs"
 
 Logging "IsoToMKV started! Looking for files in $MakeMKVLocation and inserting them as MKV to $ExportLocation"
 
