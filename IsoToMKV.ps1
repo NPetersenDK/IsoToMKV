@@ -19,12 +19,12 @@ People got errors, inserted a test to check if MakeMKV is installed.
 
 31. May 2019:
 Making Write-Progress and adding Rename-Item for file: title_t00.mkv
-It will make error one of them (non-issue), but due to lazyness i haven't added a Test-Path check.
 
-31. May 2019 2:
 Making a test if the path exists, and does not create or try converting if it does (why didn't i think of this..?)
 Making Write-Progress show percentage/status bar (yay!)
-Also removing title00.mkv to the rename thingy.
+
+01. June 2019:
+Changing some logging stuff
 
 .Description
 Getting rid of the old and beloved method
