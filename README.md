@@ -42,5 +42,8 @@ If you want to contact me about this project, you can do so by sending me an e-m
 | |_) |  _|   | | |  _| | |_) \___ \|  _| |  \| |
 |  __/| |___  | | | |___|  _ < ___) | |___| |\  |
 |_|   |_____| |_| |_____|_| \_|____/|_____|_| \_|
-            https://nipetersen.dk
+
+    Nikolaj Petersen / NPetersenDK
+    gist.github.com/NPetersenDK
+    https://nipetersen.dk
 ```
