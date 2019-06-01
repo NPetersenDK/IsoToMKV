@@ -2,6 +2,8 @@
 
 A PowerShell script that can convert the "old" beloved ISO format to MKV. This script only needs two types of input - where you have your current ISO's and where you want the script to export them.
 
+This means that if you have all your ISO files in a folder, then IsoToMKV can automatically convert all of them. Which menas that you avoid having to do them all manually.
+
 IsoToMKV uses MakeMKV that are a licensed software to do this.
 
 ## Prerequisites
