@@ -31,7 +31,7 @@ Getting rid of the old and beloved method
 to rip movies in: ISO, with this script you
 can convert all files in a directory to MKV
 
-I do not support this, check out the MakeMKV 
+I do not support this, check out the MakeMKV
 Forum and make your own if it's broken.
 
 Needed Requirements:
@@ -49,8 +49,10 @@ function Logging($data){
     "$((Get-Date).ToLocalTime()): $data" | Out-File -FilePath $LogFile -Encoding utf8 -Append
 }
 
-$MakeMKVLocation = "C:\Path\To\Your\ISOs"
-$ExportLocation = "C:\Path\To\Where\You\Want\The\MKVs"
+$MakeMKVLocation = "E:\test\test_isos"
+$ExportLocation = "E:\test\test_mkvs"
+$MinLength = "30"
+$CreateSubFolders = $true
 
 Logging "IsoToMKV started! Looking for files in $MakeMKVLocation and inserting them as MKV to $ExportLocation"
 
@@ -67,13 +69,13 @@ if ($TestMakeMKV -eq $false) {
 }
 
 else {
-   
+
     Write-Host "MakeMKV exists! Starting on files in $MakeMKVLocation"
 
     foreach ($File in $ISO1) {
         Write-Progress -Activity "Coverting to MKV" -Status "Working on $file" -PercentComplete ((($i++) / $ISO1.Count) * 100)
 
-        $TestFolder = Test-Path $ExportLocation\$File 
+        $TestFolder = Test-Path $ExportLocation\$File
 
         if ($TestFolder) {
             Write-Host "Already converted: skipped $file"
@@ -81,35 +83,63 @@ else {
         }
 
         else {
-        
+
             Write-Host "Working on $file"
             Logging "Working on $file"
 
-            New-Item $ExportLocation\$File -ItemType Directory
-            Write-Host "Starting on: $File" -ForegroundColor Green
-            
-            [String]$pathtomakemkv = "C:\Program Files (x86)\MakeMKV\makemkvcon.exe";
-            [Array]$arguments = "--minlength=2500","mkv","iso:$MakeMKVLocation\$File.iso","all","$ExportLocation\$File";
-            & $pathtomakemkv $arguments;
-            
-            $FileTest_Title_t00 = Test-Path "$ExportLocation\$File\title_t00.mkv"
-            $FileTest_Title_t01 = Test-Path "$ExportLocation\$File\title_t01.mkv"
+            if ($CreateSubFolders -eq $true) {
+                New-Item $ExportLocation\$File -ItemType Directory
+            }
 
-            if ($FileTest_Title_t00) {
-                Write-Host "Renaming title_t00 to $File.mkv" -ForegroundColor Green
-                Logging "Renaming title_t00 to $File.mkv"
-                Rename-Item $ExportLocation\$File\title_t00.mkv "$File.mkv"
+            Write-Host "Starting on: $File" -ForegroundColor Green
+
+            if ($CreateSubFolders -eq $true) {
+                 [String]$pathtomakemkv = "C:\Program Files (x86)\MakeMKV\makemkvcon.exe";
+                 [Array]$arguments = "--minlength=$MinLength","mkv","iso:$MakeMKVLocation\$File.iso","all","$ExportLocation\$File";
+                 & $pathtomakemkv $arguments;
+
+                 $FileTest_Title_t00 = Test-Path "$ExportLocation\$File\title_t00.mkv"
+                 $FileTest_Title_t01 = Test-Path "$ExportLocation\$File\title_t01.mkv"
+
+                 if ($FileTest_Title_t00) {
+                     Write-Host "Renaming title_t00 to $File.mkv" -ForegroundColor Green
+                     Logging "Renaming title_t00 to $File.mkv"
+                     Rename-Item $ExportLocation\$File\title_t00.mkv "$File.mkv"
+                 }
+                 else {
+                     Write-Host "title_t00 was not found in $File - Please check!" -ForegroundColor Red
+                     Logging "ERROR: title_t00 was not found in $File - Please check!"
+
+                 }
+
+                 if ($FileTest_Title_t01) {
+                     Write-Host "There is more than one title in $File - Please check!" -ForegroundColor Red
+                     Logging "NOTE: There is more than one title in $File - Please check!"
+                 }
             }
             else {
-                Write-Host "title_t00 was not found in $File - Please check!" -ForegroundColor Red
-                Logging "ERROR: title_t00 was not found in $File - Please check!"
-                
-            }
+                [String]$pathtomakemkv = "C:\Program Files (x86)\MakeMKV\makemkvcon.exe";
+                [Array]$arguments = "--minlength=$MinLength","mkv","iso:$MakeMKVLocation\$File.iso","all","$ExportLocation\";
+                & $pathtomakemkv $arguments;
 
-            if ($FileTest_Title_t01) {
-                Write-Host "There is more than one title in $File - Please check!" -ForegroundColor Red
-                Logging "NOTE: There is more than one title in $File - Please check!"
+                $FileTest_Title_t00 = Test-Path "$ExportLocation\title_t00.mkv"
+                $FileTest_Title_t01 = Test-Path "$ExportLocation\title_t01.mkv"
 
+                if ($FileTest_Title_t00) {
+                    Write-Host "Renaming title_t00 to $File.mkv" -ForegroundColor Green
+                    Logging "Renaming title_t00 to $File.mkv"
+                    Rename-Item $ExportLocation\title_t00.mkv "$File.mkv"
+                }
+                else {
+                    Write-Host "title_t00 was not found in $File - Please check!" -ForegroundColor Red
+                    Logging "ERROR: title_t00 was not found in $File - Please check!"
+
+                }
+
+                if ($FileTest_Title_t01) {
+                    Write-Host "There is more than one title in $File - Please check!" -ForegroundColor Red
+                    Logging "NOTE: There is more than one title in $File - Please check!"
+                }
             }
         }
     }
