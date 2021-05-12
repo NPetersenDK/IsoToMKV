@@ -49,8 +49,8 @@ function Logging($data){
     "$((Get-Date).ToLocalTime()): $data" | Out-File -FilePath $LogFile -Encoding utf8 -Append
 }
 
-$MakeMKVLocation = "E:\test\test_isos"
-$ExportLocation = "E:\test\test_mkvs"
+$MakeMKVLocation = "C:\Path\To\Your\ISOs"
+$ExportLocation = "C:\Path\To\Where\You\Want\The\MKVs"
 $MinLength = "30"
 $CreateSubFolders = $true
 
