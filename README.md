@@ -12,16 +12,17 @@ IsoToMKV uses MakeMKV that are a licensed software to do this.
 3) A little bit of brain to understand the script
 
 # What this script does
-1) Checks for ISO-files in the $MakeMKVLocation parameter: No subdirectories are being checked. Making MKV look for Titles over 2500 seconds (40 minutes - can be changed in script)
+1) Checks for ISO-files in the $MakeMKVLocation parameter: No subdirectories are being checked. Making MKV look for Titles over the $MinLength parameter
 2) Converting them to MKV to the destination ($ExportLocation)
 3) Renaming title_t00 to the file name of the ISO.
+4) Will create sub folders for each MKV if the $CreateSubFolders is $true
 
 All actions are logged in a file named: IsoToMKV-timestamp.txt that are placed the same place as the script.
 
 ## How to use:
 Open the script and change these two variables: $MakeMKVLocation and $ExportLocation
 The $MakeMKVLocation is where your ISO's is right now. And they need to be in the root of that directory, they can't be in subdirectories.
-$ExportLocation is where you want the converted versions to be. I recommend two diffrent paths for example:
+$ExportLocation is where you want the converted versions to be. I recommend two different paths for example:
 
 ```
 $MakeMKVLocation = "C:\Users\$env:username\Desktop\MyMovies"
@@ -30,7 +31,7 @@ $ExportLocation = "C:\Users\$env:username\Desktop\MyExportedMovies"
 
 ## Disclaimer:
 1) I'm not a part of the MakeMKV Team and therefore don't own any rights to their software. I recommend going to their community website for help. You can support MakeMKV by buying their software here: https://www.makemkv.com/buy/
-2) I do not support this script, but you are more than welcome to make an issue and maybe i'll look into it.
+2) I do not support this script, but you are more than welcome to make an issue and maybe I'll look into it.
 
 ## License
 This project is licensed under the MIT License, therefore a copyright notice is required to be given.
